@@ -26,8 +26,8 @@ gantt
 # 1 - ecommerce
 
 ## 001-0001
-> **Init repo.** ![status](https://img.shields.io/badge/status-ONGOING-yellow)
-> <details open>
+> **Init repo.** ![status](https://img.shields.io/badge/status-DONE-brightgreen)
+> <details >
 >     <summary>Details</summary>
 > The goal of this card is to initialize the repo.
 > 
