@@ -1,12 +1,12 @@
 ---
-Title: %GITNAME%
+Title: E-Commerce
 Description: plans and project management sheets
 Date: 
 Robots: noindex,nofollow
 Template: index
 ---
 
-# %GITNAME%
+# E-Commerce
 
 ## Analyzing all parts
 
@@ -20,7 +20,7 @@ Template: index
 
 ```mermaid
 gantt
-    section %BOARD%
+    section ecommerce
 ```
 
 # 1 - ecommerce
