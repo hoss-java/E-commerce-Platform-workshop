@@ -75,3 +75,22 @@ gantt
 > >
 > >```
 > </details>
+
+## 001-0002
+> **Add entities.** ![status](https://img.shields.io/badge/status-ONGOING-yellow)
+> <details open>
+>     <summary>Details</summary>
+> The goal of this card is to add entities for `Address`, `UserProfile` and `Customer`.
+> 
+> # DOD (definition of done):
+> Entities are added.
+> 
+> # TODO:
+> - [x] 1. Add `Address` and its tests
+> - [ ] 2. Add `UserProfile` and its tests
+> - [ ] 3. Add `Customer` and its tests
+> 
+> # Reports:
+> ## `Address`
+> * An entity, a repository ,a service and a controller for Address was added.
+> </details>
