@@ -1,6 +1,8 @@
 package com.ecommerce.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "customers")
@@ -22,11 +24,11 @@ public class Customer {
     @Column(name = "created_at", nullable = false, updatable = false)
     private java.time.LocalDateTime createdAt;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)  // ← Changed from LAZY to EAGER
     @JoinColumn(name = "address_id", nullable = false)
     private Address address;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)  // ← Changed from LAZY to EAGER
     @JoinColumn(name = "profile_id")
     private UserProfile userProfile;
     
@@ -88,12 +90,28 @@ public class Customer {
         return address;
     }
     
+    @JsonProperty("address")
+    public void setAddressId(Long addressId) {
+        if (addressId != null) {
+            this.address = new Address();
+            this.address.setId(addressId);
+        }
+    }
+    
     public void setAddress(Address address) {
         this.address = address;
     }
     
     public UserProfile getUserProfile() {
         return userProfile;
+    }
+    
+    @JsonProperty("userProfile")
+    public void setUserProfileId(Long profileId) {
+        if (profileId != null) {
+            this.userProfile = new UserProfile();
+            this.userProfile.setId(profileId);
+        }
     }
     
     public void setUserProfile(UserProfile userProfile) {

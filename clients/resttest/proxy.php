@@ -1,7 +1,7 @@
 <?php
 // proxy.php - Forward requests to Maven service
 
-$target_url = 'http://172.32.0.11:35729/api'; // maven is the container name in same network
+$target_url = 'http://172.32.0.11:8080/api'; // maven is the container name in same network
 
 // Get the request path
 $path = isset($_GET['path']) ? $_GET['path'] : '';

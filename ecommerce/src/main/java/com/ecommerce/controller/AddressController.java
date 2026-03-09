@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/addresses")
+@RequestMapping("/addresses")
 public class AddressController {
     
     @Autowired
@@ -24,7 +24,7 @@ public class AddressController {
         return new ResponseEntity<>(createdAddress, HttpStatus.CREATED);
     }
     
-    @GetMapping
+    @GetMapping("")
     public ResponseEntity<List<Address>> getAllAddresses() {
         List<Address> addresses = addressService.getAllAddresses();
         return new ResponseEntity<>(addresses, HttpStatus.OK);

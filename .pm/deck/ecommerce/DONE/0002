@@ -20,7 +20,8 @@ Entities are added.
 - [x] 1. Add `Address` and its tests
 - [x] 2. Add `UserProfile` and its tests
 - [x] 3. Add `Customer` and its tests
-- [ ] 4. Add queries
+- [x] 4. Add queries
+- [x] 5. Update/upgrade the client to work with added service
 
 # Reports:
 ## `Address`
@@ -35,6 +36,8 @@ Entities are added.
 
 
 ## Services' path
+* Now services below have been added via controllers
+
 | Controller | Method | Endpoint | Description |
 |---|---|---|---|
 | **CustomerController** | GET | `/api/customers` | Get all customers |
@@ -70,3 +73,22 @@ Entities are added.
 | | GET | `/api/addresses/street/{street}` | Find by street name |
 | | GET | `/api/addresses/count/zip-code/{zipCode}` | Count by zip code |
 | | GET | `/api/addresses/zip-code-prefix/{prefix}` | Find by zip code prefix |
+
+## Steps to con an spring boot
+1. Add entity
+2. Add repository
+3. Add service
+4. Add controller
+
+* In the case of sime rest service it just needs to a model and controller
+
+## Clients
+* There are several challenges to create rest services with spring boots
+> * there not full control on services, there are many cases that it creates super complicated data that needs to work a lot on clients to make it possible to use data
+> * I faced several issues with serializing data , in most case it needs breaking spring rules to fix issues. for example it make some data nested but it does not support nested data to read!
+ 
+## Testing
+* As a simple code that only create data base and setup rest services, coding real tests are not easy most tests that I found are not real test they test nothing, mostly test mysql , rest service and other parts of infrastructures which are not coded by us and they do not need to be tested.
+* In other hand writing a real test to test logic and a block of the code super difficult.
+* Coding real unit test also is very difficult. An unit test should test only a method and its helper functions, nothing more but mocking and stubbing when spring boot is used are not is , a big part of code is not available until running!
+* However I did some test just for test but in fact they test nothing.

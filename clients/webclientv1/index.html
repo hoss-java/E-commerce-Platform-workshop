@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Client - Customer Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/console.css">
+</head>
+<body>
+  <header>
+    <h1>Customer Management System</h1>
+    <p>Web Client for Spring API</p>
+  </header>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-button active" data-tab="customers">Customers</button>
+      <button class="tab-button" data-tab="user-profiles">User Profiles</button>
+      <button class="tab-button" data-tab="addresses">Addresses</button>
+    </div>
+
+    <!-- CUSTOMERS TAB -->
+    <div id="customers-tab" class="tab-content active">
+      <div id="customers-message" class="message"></div>
+      <div id="customers-loading" class="loading">Loading customers...</div>
+
+      <div class="form-section">
+        <h3>Create New Customer</h3>
+        <form id="customer-form" onsubmit="event.preventDefault(); createCustomer();">
+          <div class="form-group">
+            <label for="customer-firstName">First Name</label>
+            <input type="text" id="customer-firstName" placeholder="Enter first name" required>
+          </div>
+          <div class="form-group">
+            <label for="customer-lastName">Last Name</label>
+            <input type="text" id="customer-lastName" placeholder="Enter last name" required>
+          </div>
+          <div class="form-group">
+            <label for="customer-email">Email</label>
+            <input type="email" id="customer-email" placeholder="Enter email" required>
+          </div>
+          <div class="form-group">
+            <label for="customer-city">City</label>
+            <input type="text" id="customer-city" placeholder="Enter city" required>
+          </div>
+          <div class="form-group">
+              <label for="customer-address">Address: <span class="required">*</span></label>
+              <select id="customer-address" required>
+                  <option value="">-- Select an Address --</option>
+              </select>
+              <small class="help-text">Required: Please select an address</small>
+          </div>
+
+          <div class="form-group">
+              <label for="customer-profile">User Profile: <span class="optional">(Optional)</span></label>
+              <select id="customer-profile">
+                  <option value="">-- No Profile --</option>
+              </select>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="btn-primary">Create Customer</button>
+            <button type="reset" class="btn-secondary">Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-section">
+        <h3>Search Customers</h3>
+        <div class="search-section">
+          <h4>Search Options</h4>
+          <div class="form-group">
+            <label for="search-customer-email">Search by Email</label>
+            <div class="button-group">
+              <input type="email" id="search-customer-email" placeholder="Enter email">
+              <button class="btn-primary" onclick="searchCustomerByEmail()">Search</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="search-customer-lastName">Search by Last Name</label>
+            <div class="button-group">
+              <input type="text" id="search-customer-lastName" placeholder="Enter last name">
+              <button class="btn-primary" onclick="searchCustomerByLastName()">Search</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="search-customer-city">Search by City</label>
+            <div class="button-group">
+              <input type="text" id="search-customer-city" placeholder="Enter city">
+              <button class="btn-primary" onclick="searchCustomerByCity()">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>All Customers</h3>
+      <table id="customers-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Street</th>
+            <th>Zip Code</th>
+            <th>Nickname</th>
+            <th>Phone</th>
+            <th>Created At</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- USER PROFILES TAB -->
+    <div id="user-profiles-tab" class="tab-content">
+      <div id="user-profiles-message" class="message"></div>
+      <div id="user-profiles-loading" class="loading">Loading user profiles...</div>
+
+      <div class="form-section">
+        <h3>Create New User Profile</h3>
+        <form id="profile-form" onsubmit="event.preventDefault(); createUserProfile();">
+          <div class="form-group">
+            <label for="profile-nickname">Nickname</label>
+            <input type="text" id="profile-nickname" placeholder="Enter nickname" required>
+          </div>
+          <div class="form-group">
+            <label for="profile-phone">Phone</label>
+            <input type="text" id="profile-phone" placeholder="Enter phone number" required>
+          </div>
+          <div class="form-group">
+            <label for="profile-bio">Bio</label>
+            <textarea id="profile-bio" placeholder="Enter bio (optional)"></textarea>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="btn-primary">Create Profile</button>
+            <button type="reset" class="btn-secondary">Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-section">
+        <h3>Search User Profiles</h3>
+        <div class="search-section">
+          <h4>Search Options</h4>
+          <div class="form-group">
+            <label for="search-profile-nickname">Search by Nickname</label>
+            <div class="button-group">
+              <input type="text" id="search-profile-nickname" placeholder="Enter nickname">
+              <button class="btn-primary" onclick="searchUserProfileByNickname()">Search</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="search-profile-phone">Search by Phone</label>
+            <div class="button-group">
+              <input type="text" id="search-profile-phone" placeholder="Enter phone number">
+              <button class="btn-primary" onclick="searchUserProfileByPhone()">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>All User Profiles</h3>
+      <table id="user-profiles-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nickname</th>
+            <th>PhoneNumber</th>
+            <th>Bio</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ADDRESSES TAB -->
+    <div id="addresses-tab" class="tab-content">
+      <div id="addresses-message" class="message"></div>
+      <div id="addresses-loading" class="loading">Loading addresses...</div>
+
+      <div class="form-section">
+        <h3>Create New Address</h3>
+        <form id="address-form" onsubmit="event.preventDefault(); createAddress();">
+          <div class="form-group">
+            <label for="address-street">Street</label>
+            <input type="text" id="address-street" placeholder="Enter street name" required>
+          </div>
+          <div class="form-group">
+            <label for="address-city">City</label>
+            <input type="text" id="address-city" placeholder="Enter city" required>
+          </div>
+          <div class="form-group">
+            <label for="address-zipCode">Zip Code</label>
+            <input type="text" id="address-zipCode" placeholder="Enter zip code" required>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="btn-primary">Create Address</button>
+            <button type="reset" class="btn-secondary">Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-section">
+        <h3>Search Addresses</h3>
+        <div class="search-section">
+          <h4>Search Options</h4>
+          <div class="form-group">
+            <label for="search-address-zipCode">Search by Zip Code</label>
+            <div class="button-group">
+              <input type="text" id="search-address-zipCode" placeholder="Enter zip code">
+              <button class="btn-primary" onclick="searchAddressByZipCode()">Search</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="search-address-city">Search by City</label>
+            <div class="button-group">
+              <input type="text" id="search-address-city" placeholder="Enter city">
+              <button class="btn-primary" onclick="searchAddressByCity()">Search</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="search-address-street">Search by Street</label>
+            <div class="button-group">
+              <input type="text" id="search-address-street" placeholder="Enter street">
+              <button class="btn-primary" onclick="searchAddressByStreet()">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>All Addresses</h3>
+      <table id="addresses-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>Zip Code</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Console Window -->
+  <div class="console-window" id="console-window">
+      <div class="console-header">
+          <span class="console-title">Console</span>
+          <div class="console-controls">
+              <button class="console-btn" id="clear-btn">Clear</button>
+          </div>
+      </div>
+      <div class="console-output"></div>
+  </div>
+
+  <!-- Load scripts in order -->
+  <script src="js/console.js"></script>
+  <script src="js/consoleLogger.js"></script>
+  <script src="js/api-client.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+      // Clear button functionality
+      document.getElementById('clear-btn')?.addEventListener('click', () => {
+          window.consoleWindowInstance?.clear();
+      });
+  </script>
+
+</body>
+</html>
