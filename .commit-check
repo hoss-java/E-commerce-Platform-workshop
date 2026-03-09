@@ -26,7 +26,7 @@ COMMITCHECK_RUNNER=container-run
 echo "$GIT_ROOT/$COMMITCHECK_RUNNER"
 if [ -f "$GIT_ROOT/$COMMITCHECK_RUNNER" ]; then
     bash -c "source $GIT_ROOT/$COMMITCHECK_RUNNER \
-        && mvn ---noit ---quiet test" \
+        && mvn ---noit ---quiet test -Dspring.profiles.active=dev" \
     && exitcode=$?
 else
     exitcode=1
