@@ -180,3 +180,70 @@ gantt
 > >
 > >```
 > </details>
+
+## 001-0004
+> **Add order parts.** ![status](https://img.shields.io/badge/status-NOT--STARTED-lightgrey)
+> <details >
+>     <summary>Details</summary>
+> The goal of this card is to add Order, OrderItem and Orderstatus.
+> 
+> # DOD (definition of done):
+> All parts entity, service, repository, and controller is add for order, orderitem and orderstatus.
+> 
+> # TODO:
+> - [ ] 1. Add order
+> - [ ] 2. Add orderitem
+> - [ ] 3. Add orderstatus.
+> - [ ] 4. Add some test
+> - [ ] 5. Update/improve webclient to support new tables.
+> 
+> # Reports:
+> *
+> </details>
+
+## 001-0005
+> **Add promotions.** ![status](https://img.shields.io/badge/status-NOT--STARTED-lightgrey)
+> <details >
+>     <summary>Details</summary>
+> The goal of this card is to add promotions.
+> 
+> # DOD (definition of done):
+> All parts for promotions are added.
+> 
+> # TODO:
+> - [ ] 1. Add promotions.
+> - [ ] 2. Add some tests.
+> - [ ] 3. Update webclient to support the new table.
+> 
+> # Reports:
+> *
+> </details>
+
+## 001-0003
+> **Add product parts.** ![status](https://img.shields.io/badge/status-ONGOING-yellow)
+> <details open>
+>     <summary>Details</summary>
+> The goal of this card is to add Product, category.
+> 
+> # DOD (definition of done):
+> All parts, entity, repository, service and controller for product and category is added.
+> Some tests are coded.
+> 
+> # TODO:
+> - [x] 1. Add product
+> - [x] 2. Add category
+> - [x] 3. Add productimage
+> - [x] 4. Add tests
+> - [ ] 5. Improve webclient to support new part in a modular way.
+> 
+> # Reports:
+> ## Tests
+> * I tried to understand how to code a real test. all test that I see only test, mysql or restApi or spring boot itself not code and logic.
+> * I could only write test for helper functions , not my logic. A logic usually is mixed with spring boot behavior, it means it becomes again testing spring boot itself not my code!
+> * I tried E2E test, only thing that I could test was data that are passed through services, and it only can help to know data structure are changed , which we know always already. It is the client does not so, it is clients tests that help as a test architect perspective
+> * So I don't think so coding test help to find issue and fix them at lease for code that is use spring boot!
+> * Here the part that I think do not need to test, regardless many resources do it!
+> > 1. Controller -> it tests spring boot behavior which already tested by Spring developer!
+> > * Services and repository test almost nothing!
+> > * Entity tests -> tests Spring boot and mysql! not our codes
+> </details>
