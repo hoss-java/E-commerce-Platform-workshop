@@ -1,0 +1,27 @@
+---
+#...
+# Git-deck card header
+# OBS! DON'T REMOVE CARD HEADERS
+#...
+Title: Add order parts.
+Tags:
+Creator:
+AssignedTo:
+# Time tracker settings
+tartAt:
+EndAt:
+---
+The goal of this card is to add Order, OrderItem and Orderstatus.
+
+# DOD (definition of done):
+All parts entity, service, repository, and controller is add for order, orderitem and orderstatus.
+
+# TODO:
+- [ ] 1. Add order
+- [ ] 2. Add orderitem
+- [ ] 3. Add orderstatus.
+- [ ] 4. Add some test
+- [ ] 5. Update/improve webclient to support new tables.
+
+# Reports:
+*
