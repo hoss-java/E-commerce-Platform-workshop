@@ -1,2 +1,6 @@
 # Push files/folders from develop to main.
 ecommerce/
+tools/
+sql/
+clients/
+screenshots/
