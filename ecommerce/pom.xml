@@ -66,7 +66,7 @@
       <artifactId>h2</artifactId>
       <scope>runtime</scope>
     </dependency>
- 
+
     <!-- Spring Boot DevTools (optional) -->
     <dependency>
       <groupId>org.springframework.boot</groupId>

@@ -45,7 +45,7 @@ class AddressControllerTest {
         when(addressService.createAddress(any(Address.class)))
                 .thenReturn(address);
         
-        mockMvc.perform(post("/api/addresses")
+        mockMvc.perform(post("/addresses")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(address)))
                 .andExpect(status().isCreated())
@@ -62,7 +62,7 @@ class AddressControllerTest {
     void testCreateAddressWithInvalidData() throws Exception {
         Address invalidAddress = new Address("", "", "");
         
-        mockMvc.perform(post("/api/addresses")
+        mockMvc.perform(post("/addresses")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(invalidAddress)))
                 .andExpect(status().isCreated()); // Note: Your controller doesn't validate, so it returns 201
@@ -74,7 +74,7 @@ class AddressControllerTest {
         when(addressService.getAddressById(1L))
                 .thenReturn(Optional.of(address));
         
-        mockMvc.perform(get("/api/addresses/1"))
+        mockMvc.perform(get("/addresses/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.id").value(1))
@@ -90,7 +90,7 @@ class AddressControllerTest {
         when(addressService.getAddressById(999L))
                 .thenReturn(Optional.empty());
         
-        mockMvc.perform(get("/api/addresses/999"))
+        mockMvc.perform(get("/addresses/999"))
                 .andExpect(status().isNotFound());
         
         verify(addressService, times(1)).getAddressById(999L);
@@ -101,7 +101,7 @@ class AddressControllerTest {
         when(addressService.getAllAddresses())
                 .thenReturn(Arrays.asList(address));
         
-        mockMvc.perform(get("/api/addresses"))
+        mockMvc.perform(get("/addresses"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$[0].id").value(1))
@@ -118,7 +118,7 @@ class AddressControllerTest {
                 .thenReturn(Arrays.asList(address));
         
         // FIXED: Changed from /zipcode/ to /zip-code/
-        mockMvc.perform(get("/api/addresses/zip-code/10001"))
+        mockMvc.perform(get("/addresses/zip-code/10001"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$[0].id").value(1))
@@ -133,7 +133,7 @@ class AddressControllerTest {
         when(addressService.getAddressesByZipCode("99999"))
                 .thenReturn(Arrays.asList());
         
-        mockMvc.perform(get("/api/addresses/zip-code/99999"))
+        mockMvc.perform(get("/addresses/zip-code/99999"))
                 .andExpect(status().isNotFound());
     }
     
@@ -142,7 +142,7 @@ class AddressControllerTest {
         when(addressService.getAddressesByCity("New York"))
                 .thenReturn(Arrays.asList(address));
         
-        mockMvc.perform(get("/api/addresses/city/New York"))
+        mockMvc.perform(get("/addresses/city/New York"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].city").value("New York"));
     }
@@ -152,7 +152,7 @@ class AddressControllerTest {
         when(addressService.getAddressesByStreet("123 Main St"))
                 .thenReturn(Arrays.asList(address));
         
-        mockMvc.perform(get("/api/addresses/street/123 Main St"))
+        mockMvc.perform(get("/addresses/street/123 Main St"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].street").value("123 Main St"));
     }
@@ -162,7 +162,7 @@ class AddressControllerTest {
         when(addressService.countAddressesByZipCode("10001"))
                 .thenReturn(1L);
         
-        mockMvc.perform(get("/api/addresses/count/zip-code/10001"))
+        mockMvc.perform(get("/addresses/count/zip-code/10001"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(1));
@@ -173,7 +173,7 @@ class AddressControllerTest {
         when(addressService.getAddressesByZipCodePrefix("100"))
                 .thenReturn(Arrays.asList(address));
         
-        mockMvc.perform(get("/api/addresses/zip-code-prefix/100"))
+        mockMvc.perform(get("/addresses/zip-code-prefix/100"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].zipCode").value("10001"));
     }
@@ -187,7 +187,7 @@ class AddressControllerTest {
         when(addressService.updateAddress(eq(1L), any(Address.class)))
                 .thenReturn(updatedAddress);
         
-        mockMvc.perform(put("/api/addresses/1")
+        mockMvc.perform(put("/addresses/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(updatedAddress)))
                 .andExpect(status().isOk())
@@ -207,7 +207,7 @@ class AddressControllerTest {
         when(addressService.updateAddress(eq(999L), any(Address.class)))
                 .thenThrow(new RuntimeException("Address not found with id: 999"));
         
-        mockMvc.perform(put("/api/addresses/999")
+        mockMvc.perform(put("/addresses/999")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(updatedAddress)))
                 .andExpect(status().isNotFound());
@@ -218,7 +218,7 @@ class AddressControllerTest {
     void testDeleteAddress() throws Exception {
         doNothing().when(addressService).deleteAddress(1L);
         
-        mockMvc.perform(delete("/api/addresses/1"))
+        mockMvc.perform(delete("/addresses/1"))
                 .andExpect(status().isNoContent());
         
         verify(addressService, times(1)).deleteAddress(1L);

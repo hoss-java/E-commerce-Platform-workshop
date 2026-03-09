@@ -45,7 +45,7 @@ class UserProfileControllerTest {
         when(userProfileService.createUserProfile(anyString(), anyString(), anyString()))
                 .thenReturn(userProfile);
         
-        mockMvc.perform(post("/api/user-profiles")
+        mockMvc.perform(post("/user-profiles")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(userProfile)))
                 .andExpect(status().isCreated()) // FIXED: Changed from isOk() to isCreated()
@@ -63,7 +63,7 @@ class UserProfileControllerTest {
     void testGetUserProfileById() throws Exception {
         when(userProfileService.getUserProfileById(1L)).thenReturn(userProfile);
         
-        mockMvc.perform(get("/api/user-profiles/1"))
+        mockMvc.perform(get("/user-profiles/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.id").value(1))
@@ -79,7 +79,7 @@ class UserProfileControllerTest {
         when(userProfileService.getUserProfileById(999L))
                 .thenThrow(new RuntimeException("User profile not found"));
         
-        mockMvc.perform(get("/api/user-profiles/999"))
+        mockMvc.perform(get("/user-profiles/999"))
                 .andExpect(status().isNotFound());
     }
     
@@ -88,7 +88,7 @@ class UserProfileControllerTest {
         when(userProfileService.getAllUserProfiles())
                 .thenReturn(Arrays.asList(userProfile));
         
-        mockMvc.perform(get("/api/user-profiles"))
+        mockMvc.perform(get("/user-profiles"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$[0].id").value(1))
@@ -103,7 +103,7 @@ class UserProfileControllerTest {
         when(userProfileService.getUserProfileByNickname("john_doe"))
                 .thenReturn(Optional.of(userProfile));
         
-        mockMvc.perform(get("/api/user-profiles/nickname/john_doe"))
+        mockMvc.perform(get("/user-profiles/nickname/john_doe"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.nickname").value("john_doe"));
@@ -116,7 +116,7 @@ class UserProfileControllerTest {
         when(userProfileService.getUserProfileByNickname("nonexistent"))
                 .thenReturn(Optional.empty());
         
-        mockMvc.perform(get("/api/user-profiles/nickname/nonexistent"))
+        mockMvc.perform(get("/user-profiles/nickname/nonexistent"))
                 .andExpect(status().isNotFound());
     }
     
@@ -125,7 +125,7 @@ class UserProfileControllerTest {
         when(userProfileService.searchProfilesByPhoneNumber("555"))
                 .thenReturn(Arrays.asList(userProfile));
         
-        mockMvc.perform(get("/api/user-profiles/search/phone")
+        mockMvc.perform(get("/user-profiles/search/phone")
                 .param("phonePartial", "555"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -139,7 +139,7 @@ class UserProfileControllerTest {
         when(userProfileService.searchProfilesByPhoneNumber("999"))
                 .thenReturn(Arrays.asList());
         
-        mockMvc.perform(get("/api/user-profiles/search/phone")
+        mockMvc.perform(get("/user-profiles/search/phone")
                 .param("phonePartial", "999"))
                 .andExpect(status().isNotFound());
     }
@@ -149,7 +149,7 @@ class UserProfileControllerTest {
         when(userProfileService.getProfilesWithBio())
                 .thenReturn(Arrays.asList(userProfile));
         
-        mockMvc.perform(get("/api/user-profiles/with-bio"))
+        mockMvc.perform(get("/user-profiles/with-bio"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$[0].bio").value("I love ecommerce!"));
@@ -162,7 +162,7 @@ class UserProfileControllerTest {
         when(userProfileService.getProfilesWithBio())
                 .thenReturn(Arrays.asList());
         
-        mockMvc.perform(get("/api/user-profiles/with-bio"))
+        mockMvc.perform(get("/user-profiles/with-bio"))
                 .andExpect(status().isNotFound());
     }
     
@@ -171,7 +171,7 @@ class UserProfileControllerTest {
         when(userProfileService.getProfilesByNicknamePrefix("john"))
                 .thenReturn(Arrays.asList(userProfile));
         
-        mockMvc.perform(get("/api/user-profiles/nickname-prefix/john"))
+        mockMvc.perform(get("/user-profiles/nickname-prefix/john"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$[0].nickname").value("john_doe"));
@@ -184,7 +184,7 @@ class UserProfileControllerTest {
         when(userProfileService.getProfilesByNicknamePrefix("xyz"))
                 .thenReturn(Arrays.asList());
         
-        mockMvc.perform(get("/api/user-profiles/nickname-prefix/xyz"))
+        mockMvc.perform(get("/user-profiles/nickname-prefix/xyz"))
                 .andExpect(status().isNotFound());
     }
     
@@ -193,7 +193,7 @@ class UserProfileControllerTest {
         when(userProfileService.countProfilesByPhoneNumberPrefix("555"))
                 .thenReturn(1L);
         
-        mockMvc.perform(get("/api/user-profiles/count/phone-prefix/555"))
+        mockMvc.perform(get("/user-profiles/count/phone-prefix/555"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(1));
@@ -210,7 +210,7 @@ class UserProfileControllerTest {
         when(userProfileService.updateUserProfile(eq(1L), anyString(), anyString(), anyString()))
                 .thenReturn(updatedProfile);
         
-        mockMvc.perform(put("/api/user-profiles/1")
+        mockMvc.perform(put("/user-profiles/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(updatedProfile)))
                 .andExpect(status().isOk())
@@ -230,7 +230,7 @@ class UserProfileControllerTest {
         when(userProfileService.updateUserProfile(eq(999L), anyString(), anyString(), anyString()))
                 .thenThrow(new RuntimeException("User profile not found"));
         
-        mockMvc.perform(put("/api/user-profiles/999")
+        mockMvc.perform(put("/user-profiles/999")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(updatedProfile)))
                 .andExpect(status().isNotFound());
@@ -241,7 +241,7 @@ class UserProfileControllerTest {
     void testDeleteUserProfile() throws Exception {
         doNothing().when(userProfileService).deleteUserProfile(1L);
         
-        mockMvc.perform(delete("/api/user-profiles/1"))
+        mockMvc.perform(delete("/user-profiles/1"))
                 .andExpect(status().isNoContent()); // FIXED: Changed from isOk() to isNoContent()
         
         verify(userProfileService, times(1)).deleteUserProfile(1L);
