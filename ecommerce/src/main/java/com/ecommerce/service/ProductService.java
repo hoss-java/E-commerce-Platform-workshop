@@ -4,72 +4,59 @@ import com.ecommerce.entity.Product;
 import com.ecommerce.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ProductService {
-
+    
     @Autowired
     private ProductRepository productRepository;
-
-    public List<Product> findAll() {
-        return productRepository.findAll();
-    }
-
-    public Optional<Product> findById(Long id) {
-        return productRepository.findById(id);
-    }
-
-    public Product save(Product product) {
+    
+    // Create a new product
+    public Product createProduct(Product product) {
         return productRepository.save(product);
     }
-
-    public void deleteById(Long id) {
-        productRepository.deleteById(id);
+    
+    // Get all products
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
-
-    // Method to find products by category name
-    public List<Product> getProductsByCategoryName(String categoryName) {
-        return productRepository.findByCategory_Name(categoryName);
+    
+    // Get product by ID
+    public Optional<Product> getProductById(Long id) {
+        return productRepository.findById(id);
     }
-
-    // Method to find products within a specific price range
-    public List<Product> getProductsByPriceRange(BigDecimal minPrice, BigDecimal maxPrice) {
-        return productRepository.findByPriceBetween(minPrice, maxPrice);
+    
+    // Update an existing product
+    public Product updateProduct(Long id, Product productDetails) {
+        Optional<Product> product = productRepository.findById(id);
+        if (product.isPresent()) {
+            Product existingProduct = product.get();
+            existingProduct.setName(productDetails.getName());
+            existingProduct.setPrice(productDetails.getPrice());
+            existingProduct.setCategory(productDetails.getCategory());
+            return productRepository.save(existingProduct);
+        }
+        return null;
     }
-
-    // Advanced query to search products by keyword
-    public List<Product> searchProductsByKeyword(String keyword) {
-        return productRepository.findByNameContaining(keyword);
+    
+    // Delete a product
+    public boolean deleteProduct(Long id) {
+        if (productRepository.existsById(id)) {
+            productRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
-
-    // Method to find products cheaper than a given price
-    public List<Product> getProductsCheaperThan(BigDecimal price) {
-        return productRepository.findByPriceLessThan(price);
+    
+    // Get products by category
+    public List<Product> getProductsByCategory(Long categoryId) {
+        return productRepository.findByCategoryId(categoryId);
     }
-
-    // Method to get products ordered by price ascending
-    public List<Product> getProductsOrderedByPriceAsc() {
-        return productRepository.findByOrderByPriceAsc();
-    }
-
-    // Method to get products ordered by price descending
-    public List<Product> getProductsOrderedByPriceDesc() {
-        return productRepository.findByOrderByPriceDesc();
-    }
-
-    // Count products in a specific category
-    public Long countProductsInCategory(Long categoryId) {
-        return productRepository.countByCategoryId(categoryId);
-    }
-
-    // Get products by category ID
-    public List<Product> getProductsByCategoryId(Long categoryId) {
-        return productRepository.findByCategory_Id(categoryId);
+    
+    // Search products by name
+    public List<Product> searchProductsByName(String name) {
+        return productRepository.findByNameContainingIgnoreCase(name);
     }
 }
-
-

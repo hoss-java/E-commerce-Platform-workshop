@@ -3,6 +3,7 @@ package com.ecommerce.entity;
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.JsonNode;
 
 @Entity
 @Table(name = "customers")
@@ -91,10 +92,10 @@ public class Customer {
     }
     
     @JsonProperty("address")
-    public void setAddressId(Long addressId) {
-        if (addressId != null) {
+    public void setAddressId(JsonNode addressNode) {
+        if (addressNode != null && addressNode.has("id")) {
             this.address = new Address();
-            this.address.setId(addressId);
+            this.address.setId(addressNode.get("id").asLong());
         }
     }
     
@@ -107,10 +108,10 @@ public class Customer {
     }
     
     @JsonProperty("userProfile")
-    public void setUserProfileId(Long profileId) {
-        if (profileId != null) {
+    public void setUserProfileId(JsonNode profileNode) {
+        if (profileNode != null && profileNode.has("id")) {
             this.userProfile = new UserProfile();
-            this.userProfile.setId(profileId);
+            this.userProfile.setId(profileNode.get("id").asLong());
         }
     }
     

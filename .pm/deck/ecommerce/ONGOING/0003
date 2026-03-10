@@ -22,7 +22,7 @@ Some tests are coded.
 - [x] 2. Add category
 - [x] 3. Add productimage
 - [x] 4. Add tests
-- [ ] 5. Improve webclient to support new part in a modular way.
+- [x] 5. Improve webclient to support new part in a modular way.
 
 # Reports:
 ## Tests
@@ -34,3 +34,6 @@ Some tests are coded.
 > 1. Controller -> it tests spring boot behavior which already tested by Spring developer!
 > * Services and repository test almost nothing!
 > * Entity tests -> tests Spring boot and mysql! not our codes
+
+# GitHub follows
+* No after fixing test for customers , the tests lines on `main-merge-changes.yml` uncommented

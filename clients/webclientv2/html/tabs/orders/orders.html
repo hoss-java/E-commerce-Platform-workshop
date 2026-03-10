@@ -1,0 +1,47 @@
+<div id="orders-tab" class="tab-content">
+  <div id="orders-message" class="message"></div>
+  <div id="orders-loading" class="loading">Loading orders...</div>
+
+  <div id="addOrderButtonGroup" class="button-group" style="margin-bottom: 20px;">
+    <button class="btn-primary" onclick="ordersCrudManager.toggleFormVisibility(true);">+ Add New Order</button>
+  </div>
+
+  <div id="orderForm" class="form-section hidden">
+    <h3>Create New Order</h3>
+    <form id="order-form">
+      <div class="form-group">
+        <label for="order-street">Street</label>
+        <input type="text" id="order-street" placeholder="Enter street">
+      </div>
+      <div class="form-group">
+        <label for="order-city">City</label>
+        <input type="text" id="order-city" placeholder="Enter city">
+      </div>
+      <div class="form-group">
+        <label for="order-zipCode">Zip Code</label>
+        <input type="text" id="order-zipCode" placeholder="Enter zip code">
+      </div>
+      <div id="orderFormButtonGroup" class="button-group">
+        <button type="submit" class="btn-primary">Save Order</button>
+        <button type="button" class="btn-secondary" onclick="ordersCrudManager.toggleFormVisibility(false);">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+
+<!-- GENERIC LIST WITH DYNAMIC FILTER -->
+<div class="list-container">
+  <!-- LINE 1: DYNAMIC FILTER ROW -->
+  <div id="order-filter-row-container" class="filter-row">
+    <!-- Filter UI will be generated here dynamically -->
+  </div>
+
+  <!-- LINE 2: TABLE WITH HEADERS -->
+  <table id="orders-table">
+    <thead>
+      <!-- Headers will be generated here dynamically -->
+    </thead>
+    <!-- LINE 3+: DATA ROWS -->
+    <tbody></tbody>
+  </table>
+</div>

@@ -1,0 +1,121 @@
+{
+  "entityName": "customer",
+  "apiEndpoint": "customers",
+  "tableId": "customers-table",
+  "tabName": "customers",
+  "formId": "customer-form",
+  "formContainerId": "customerForm",
+  "onLoadComplete": "onCustomersLoaded",
+  "crudId": "customers",
+
+  "defaultSearchField": "firstName",
+  "enableSearch": true,
+  "columns": [
+    {
+      "key": "id",
+      "label": "ID",
+      "display": true,
+      "searchable": false 
+    },
+    {
+      "key": "firstName",
+      "label": "First Name",
+      "display": true,
+      "searchable": true 
+    },
+    {
+      "key": "lastName",
+      "label": "Last Name",
+      "display": true,
+      "searchable": true 
+    },
+    {
+      "key": "email",
+      "label": "Email",
+      "display": true,
+      "searchable": true 
+    },
+    {
+      "key": "address.city",
+      "label": "City",
+      "display": true,
+      "searchable": false
+    },
+    {
+      "key": "address.street",
+      "label": "Street",
+      "display": true,
+      "searchable": false
+    },
+    {
+      "key": "address.zipCode",
+      "label": "Zip Code",
+      "display": true,
+      "searchable": false
+    },
+    {
+      "key": "profile.nickname",
+      "label": "Nickname",
+      "display": true,
+      "searchable": false
+    },
+    {
+      "key": "profile.phoneNumber",
+      "label": "Phone",
+      "display": true,
+      "searchable": false
+    },
+    {
+      "key": "createdAt",
+      "label": "Created At",
+      "display": false,
+      "formatter": "formatDate",
+      "searchable": false
+    }
+  ],
+  "formFields": [
+    {
+      "id": "customer-firstName",
+      "key": "firstName",
+      "label": "First Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter First name",
+      "pattern": "[a-zA-Z0-9\\s,.\\-]*",
+      "maxLength": 50
+    },
+    {
+      "id": "customer-lastName",
+      "key": "lastName",
+      "label": "Last Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter Last name",
+      "pattern": "[a-zA-Z0-9\\s,.\\-]*",
+      "maxLength": 50
+    },
+    {
+      "id": "customer-email",
+      "key": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "laceholder": "example@domain.com"
+    },
+    {
+      "id": "customer-address",
+      "key": "address",
+      "label": "Address",
+      "type": "select",
+      "relationshipKey": "address",
+      "required": true
+    },
+    {
+      "id": "customer-profile",
+      "key": "profile",
+      "label": "User Profile",
+      "relationshipKey": "customer-profile",
+      "type": "select"
+    }
+  ]
+}

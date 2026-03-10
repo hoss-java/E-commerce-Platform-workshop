@@ -76,4 +76,8 @@ public class AddressService {
     public List<Address> getAddressesByZipCodePrefix(String prefix) {
         return addressRepository.findByZipCodeStartingWith(prefix);
     }
+
+    public Address findById(Integer id) {
+        return addressRepository.findById((long) id).orElse(null);
+    }
 }
