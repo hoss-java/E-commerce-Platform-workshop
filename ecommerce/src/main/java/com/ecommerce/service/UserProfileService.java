@@ -78,4 +78,8 @@ public class UserProfileService {
     public long countProfilesByPhoneNumberPrefix(String prefix) {
         return userProfileRepository.countByPhoneNumberPrefix(prefix);
     }
+
+    public UserProfile findById(Integer id) {
+        return userProfileRepository.findById((long) id).orElse(null);
+    }
 }

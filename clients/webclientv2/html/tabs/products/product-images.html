@@ -1,0 +1,35 @@
+<div id="product-images-tab" class="tab-content">
+  <!-- Messages and Loading States -->
+  <div id="product-images-message" class="message"></div>
+  <div id="product-images-loading" class="loading">Loading product images...</div>
+
+  <!-- Add New Address Button -->
+  <div id="addProductImageButtonGroup" class="button-group" style="margin-bottom: 20px;">
+    <button class="btn-primary" onclick="productImagesCrudManager.toggleFormVisibility(true);">
+      + Add New Product image
+    </button>
+  </div>
+
+
+  <!-- Product image Form (Hidden by Default) -->
+  <div id="productImageForm" class="form-section hidden" data-auto-generate="true">
+    <!-- Form will be generated here -->
+  </div>
+
+  <!-- Product images List -->
+  <div class="list-container">
+    <!-- Dynamic Filter Row -->
+    <div id="product-image-filter-row-container" class="filter-row">
+      <!-- Filter UI generated dynamically -->
+    </div>
+    <!-- Product images Table -->
+    <table id="product-images-table">
+      <thead>
+        <!-- Headers generated dynamically -->
+      </thead>
+      <tbody>
+        <!-- Data rows generated dynamically -->
+      </tbody>
+    </table>
+  </div>
+</div>
