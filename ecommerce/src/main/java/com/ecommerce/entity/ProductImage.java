@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import com.ecommerce.dto.ProductImageId;
+import com.ecommerce.entity.ProductImageId;
 
 @Entity
 @Table(name = "product_images")

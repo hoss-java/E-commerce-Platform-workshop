@@ -9,11 +9,21 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="number"],
-input[type="date"],
 input[type="url"],
 textarea,
 select {
   width: 100%;
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+/* Date and datetime inputs - auto width */
+input[type="date"],
+input[type="datetime-local"] {
+  width: auto;
   padding: 10px;
   border: 1px solid #bdc3c7;
   border-radius: 4px;
@@ -26,6 +36,7 @@ input[type="email"]:focus,
 input[type="tel"]:focus,
 input[type="number"]:focus,
 input[type="date"]:focus,
+input[type="datetime-local"]:focus,
 input[type="url"]:focus,
 textarea:focus,
 select:focus {

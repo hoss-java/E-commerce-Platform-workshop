@@ -287,6 +287,89 @@ const apiClient = {
   updateProductImageUrl: async (productId, oldUrl, newUrl) => {
     const data = { oldUrl, newUrl };
     return apiClient.makeRequest(`images/products/${productId}`, 'PUT', data);
-  }
+  },
+
+  // PROMOTIONS
+  getPromotions: async () => {
+    return apiClient.makeRequest('promotions', 'GET');
+  },
+
+  createPromotion: async (data) => {
+    return apiClient.makeRequest('promotions', 'POST', data);
+  },
+
+  getPromotionById: async (id) => {
+    return apiClient.makeRequest(`promotions/${id}`, 'GET');
+  },
+
+  updatePromotion: async (id, data) => {
+    return apiClient.makeRequest(`promotions/${id}`, 'PUT', data);
+  },
+
+  deletePromotion: async (id) => {
+    return apiClient.makeRequest(`promotions/${id}`, 'DELETE');
+  },
+
+  getPromotionByCode: async (code) => {
+    return apiClient.makeRequest(`promotions/code/${code}`, 'GET');
+  },
+
+  // PRODUCT-PROMOTIONS
+  getProductPromotions: async () => {
+    return apiClient.makeRequest('product-promotions/all', 'GET');
+  },
+
+  createProductPromotion: async (data) => {
+    return apiClient.makeRequest('product-promotions', 'POST', data);
+  },
+
+  getProductPromotionById: async (id) => {
+    return apiClient.makeRequest(`product-promotions/by-id/${id}`, 'GET');
+  },
+
+  updateProductPromotion: async (id, data) => {
+    return apiClient.makeRequest(`product-promotions/by-id/${id}`, 'PUT', data);
+  },
+
+  deleteProductPromotion: async (id) => {
+    return apiClient.makeRequest(`product-promotions/by-id/${id}`, 'DELETE');
+  },
+
+  // ORDERS
+  getOrders: async () => {
+    return apiClient.makeRequest('orders', 'GET');
+  },
+
+  createOrder: async (data) => {
+    return apiClient.makeRequest('orders', 'POST', data);
+  },
+
+  getOrderById: async (id) => {
+    return apiClient.makeRequest(`orders/${id}`, 'GET');
+  },
+
+  updateOrder: async (id, data) => {
+    return apiClient.makeRequest(`orders/${id}`, 'PUT', data);
+  },
+
+  deleteOrder: async (id) => {
+    return apiClient.makeRequest(`orders/${id}`, 'DELETE');
+  },
+
+  getOrdersByCustomerId: async (customerId) => {
+    return apiClient.makeRequest(`orders/customer/${customerId}`, 'GET');
+  },
+
+  getOrdersByStatus: async (status) => {
+    return apiClient.makeRequest(`orders/status/${status}`, 'GET');
+  },
+
+  getOrdersByDateRange: async (startDate, endDate) => {
+    return apiClient.makeRequest(`orders/date-range?startDate=${startDate}&endDate=${endDate}`, 'GET');
+  },
+
+  getOrdersByCustomerIdAndStatus: async (customerId, status) => {
+    return apiClient.makeRequest(`orders/customer/${customerId}/status/${status}`, 'GET');
+  },
 
 };

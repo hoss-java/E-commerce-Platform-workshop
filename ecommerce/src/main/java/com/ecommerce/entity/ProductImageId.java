@@ -1,4 +1,4 @@
-package com.ecommerce.dto;
+package com.ecommerce.entity;
 
 import java.io.Serializable;
 import lombok.AllArgsConstructor;

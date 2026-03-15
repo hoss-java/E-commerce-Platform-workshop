@@ -21,12 +21,22 @@ const groupsConfig = [
       { id: 'products', label: 'Products' },
       { id: 'product-images', label: 'Product images' },
     ]
-//  },
-//  {
-//    id: 'orders',
-//    label: 'Orders',
-//    tabs: [
-//      { id: 'orders', label: 'Orders' }    ]
+  },
+  {
+    id: 'promotions',
+    label: 'Promotions',
+    tabs: [
+      { id: 'promotions', label: 'Promotions' },
+      { id: 'product-promotions', label: 'Product promotions' }
+    ]
+  },
+  {
+    id: 'orders',
+    label: 'Orders',
+    tabs: [
+      { id: 'orders', label: 'Orders' },
+      { id: 'order-items', label: 'Order Items' }
+    ]
   }
 ];
 

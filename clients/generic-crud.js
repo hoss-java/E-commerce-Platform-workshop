@@ -51,6 +51,7 @@ class CRUDManager {
       console.log('📍 methodName', methodName);
       
       console.log('⏳ Calling API method...');
+      console.debug(`[DEBUG] methodName #${methodName}`);
       this.data = await this.apiClient[methodName]();
       console.log('✅ API response received', { dataLength: this.data.length, data: this.data });
       
@@ -421,7 +422,7 @@ class CRUDManager {
       const sentData = this.prepareEntityData(formData, 'create');
       const camelCaseEntity = this.kebabToCamel(this.config.entityName);
       const methodName = `create${this.capitalize(camelCaseEntity)}`;
-      
+      console.debug(`[DEBUG] methodName #${methodName} - ${sentData}`);
       const response = await this.apiClient[methodName](sentData);
       
       this.showMessage(
@@ -455,7 +456,7 @@ class CRUDManager {
       const sentData = this.prepareEntityData(formData, 'update');
       const camelCaseEntity = this.kebabToCamel(this.config.entityName);
       const methodName = `update${this.capitalize(camelCaseEntity)}`;
-      
+      console.debug(`[DEBUG] methodName #${methodName} - ${sentData}`);
       const response = await this.apiClient[methodName](id, sentData);
       
       this.showMessage(
@@ -491,6 +492,7 @@ class CRUDManager {
 
     try {
       const methodName = `delete${this.capitalize(camelCaseEntity)}`;
+      console.debug(`[DEBUG] methodName #${methodName} - ${id}`);
       await this.apiClient[methodName](id);
       
       this.showMessage(

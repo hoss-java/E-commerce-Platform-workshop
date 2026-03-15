@@ -41,7 +41,8 @@ class DataManager {
       const methodName = `get${this.utilityHelper.capitalize(camelCaseEndpoint)}`;
       console.log('📍 methodName', methodName);
       
-      console.log('⏳ Calling API method...');
+      console.log(`⏳ Calling API method...`);
+      console.debug(`[DEBUG] methodName #${methodName}`);
       this.data = await this.apiClient[methodName]();
       console.log('✅ API response received', { dataLength: this.data.length, data: this.data });
       
@@ -110,7 +111,7 @@ class DataManager {
       const methodName = `create${this.utilityHelper.capitalize(camelCaseEntity)}`;
       
       const sentData = this.prepareEntityData(formData, 'create');
-      
+      console.debug(`[DEBUG] methodName #${methodName} - ${sentData}`);
       const response = await this.apiClient[methodName](sentData);
       
       this.uiController.showMessage(
@@ -145,7 +146,7 @@ class DataManager {
       const methodName = `update${this.utilityHelper.capitalize(camelCaseEntity)}`;
       
       const sentData = this.prepareEntityData(formData, 'update');
-      
+      console.debug(`[DEBUG] methodName #${methodName} - ${sentData}`);
       const response = await this.apiClient[methodName](id, sentData);
       
       this.uiController.showMessage(
@@ -183,6 +184,7 @@ class DataManager {
 
     try {
       const methodName = `delete${this.utilityHelper.capitalize(camelCaseEntity)}`;
+      console.debug(`[DEBUG] methodName #${methodName} - ${id}`);
       await this.apiClient[methodName](id);
       
       this.uiController.showMessage(

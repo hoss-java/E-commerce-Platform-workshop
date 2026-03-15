@@ -1,0 +1,102 @@
+{
+  "entityName": "order",
+  "apiEndpoint": "orders",
+  "tableId": "orders-table",
+  "tabName": "orders",
+  "formId": "order-form",
+  "formContainerId": "orderForm",
+  "onLoadComplete": "onOrdersLoaded",
+  "crudId": "orders",
+
+  "defaultSearchField": "status",
+  "enableSearch": true,
+  "columns": [
+    {
+      "key": "id",
+      "label": "ID",
+      "display": true,
+      "searchable": false
+    },
+    {
+      "key": "orderDate",
+      "label": "Order Date",
+      "display": true,
+      "searchable": true
+    },
+    {
+      "key": "status",
+      "label": "Status",
+      "display": true,
+      "searchable": true
+    },
+    {
+      "key": "customer.id",
+      "label": "Customer ID",
+      "display": true,
+      "searchable": true
+    },
+    {
+      "key": "customer.firstName",
+      "label": "Name",
+      "display": true,
+      "searchable": true
+    },
+    {
+      "key": "customer.lastName",
+      "label": "Last Name",
+      "display": true,
+      "searchable": true
+    }
+  ],
+  "formFields": [
+    {
+      "id": "order-customer",
+      "key": "customer.id",
+      "label": "Customer",
+      "type": "select",
+      "required": true,
+      "placeholder": "Select a customer",
+      "apiEndpoint": "customers",
+      "displayField": "name",
+      "valueField": "id"
+    },
+    {
+      "id": "order-orderDate",
+      "key": "orderDate",
+      "label": "Order Date",
+      "type": "datetime-local",
+      "required": true,
+      "placeholder": "Select order date and time"
+    },
+    {
+      "id": "order-status",
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "required": true,
+      "placeholder": "Select order status",
+      "options": [
+        {
+          "value": "PENDING",
+          "label": "Pending"
+        },
+        {
+          "value": "PROCESSING",
+          "label": "Processing"
+        },
+        {
+          "value": "SHIPPED",
+          "label": "Shipped"
+        },
+        {
+          "value": "DELIVERED",
+          "label": "Delivered"
+        },
+        {
+          "value": "CANCELLED",
+          "label": "Cancelled"
+        }
+      ]
+    }
+  ]
+}

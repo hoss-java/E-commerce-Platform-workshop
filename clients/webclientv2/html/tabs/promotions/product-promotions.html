@@ -1,0 +1,34 @@
+<div id="product-promotions-tab" class="tab-content">
+  <!-- Messages and Loading States -->
+  <div id="product-promotions-message" class="message"></div>
+  <div id="product-promotions-loading" class="loading">Loading product promotions...</div>
+
+  <!-- Add New Product Promotion Button -->
+  <div id="addProductPromotionButtonGroup" class="button-group" style="margin-bottom: 20px;">
+    <button class="btn-primary" onclick="productPromotionsCrudManager.toggleFormVisibility(true);">
+      + Add New Product Promotion
+    </button>
+  </div>
+
+  <!-- Product Promotion Form (Hidden by Default) -->
+  <div id="productPromotionForm" class="form-section hidden" data-auto-generate="true">
+    <!-- Form will be generated here -->
+  </div>
+
+  <!-- Product Promotions List -->
+  <div class="list-container">
+    <!-- Dynamic Filter Row -->
+    <div id="product-promotion-filter-row-container" class="filter-row">
+      <!-- Filter UI generated dynamically -->
+    </div>
+    <!-- Product Promotions Table -->
+    <table id="product-promotions-table">
+      <thead>
+        <!-- Headers generated dynamically -->
+      </thead>
+      <tbody>
+        <!-- Data rows generated dynamically -->
+      </tbody>
+    </table>
+  </div>
+</div>
