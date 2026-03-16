@@ -2,12 +2,9 @@ package com.ecommerce.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
-import java.math.BigDecimal;
 
 @Entity
 public class Category {
@@ -19,8 +16,11 @@ public class Category {
     @Column(nullable = false, unique = true)
     private String name;
 
-    // Constructors, getters, and setters
     public Category() {}
+
+    public Category(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

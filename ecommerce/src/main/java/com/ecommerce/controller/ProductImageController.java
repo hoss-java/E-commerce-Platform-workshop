@@ -27,7 +27,7 @@ import com.ecommerce.dto.CategoryDTO;
 public class ProductImageController {
     
     @Autowired
-    private ProductImageService productImageService;
+    protected ProductImageService productImageService;
     
     @Autowired
     private ObjectMapper objectMapper;

@@ -24,12 +24,12 @@ async function initializeOrderItemsCRUD() {
     orderItemsCrudManager.generateFormIfNeeded();    
 
     // Setup callbacks
-    setupOrdersAndProductsCallbacks();
+    setupOrdersItemsCallbacks();
 
     await orderItemsCrudManager.loadAll();
     orderItemsCrudManager.setupFormSubmit('create');
     // Load dropdown options
-    await loadOrdersAndProductsDropdownOptions();  
+    await loadOrderItemsDropdownOptions();  
   } catch (error) {
     console.error('❌ initializeOrderItemsCRUD - ERROR OCCURRED', {
       message: error.message,
@@ -43,29 +43,29 @@ async function initializeOrderItemsCRUD() {
 /**
  * Setup orders and products callbacks for order items module
  */
-function setupOrdersAndProductsCallbacks() {
+function setupOrdersItemsCallbacks() {
   console.log('📍 Setting up orders and products callbacks');
   
   // Callback function that runs after orders and products are loaded
   window.onOrderItemsLoaded = async (data) => {
     console.log('✅ orders and products loaded successfully!', data);
     // Load dropdown options (orders and products)
-    await loadOrdersAndProductsDropdownOptions();
+    await loadOrderItemsDropdownOptions();
   };
 }
 
 /**
  * Load dropdown options (orders and products) for order item form
  */
-async function loadOrdersAndProductsDropdownOptions() {
+async function loadOrderItemsDropdownOptions() {
   try {
     const [orders, products] = await Promise.all([
       apiClient.getOrders(),
       apiClient.getProducts(),
     ]);
 
-    populateOrderDropdown(orders);
-    populateProductDropdown(products);
+    populateOrderItemsOrderDropdown(orders);
+    populateOrderItemsProductDropdown(products);
   } catch (error) {
     console.error('Error loading dropdown options:', error);
     orderItemsCrudManager.showMessage('Error loading dropdown options', 'error');
@@ -76,7 +76,7 @@ async function loadOrdersAndProductsDropdownOptions() {
  * Populate order dropdown
  * @param {Array} orders - Array of order objects
  */
-function populateOrderDropdown(orders) {
+function populateOrderItemsOrderDropdown(orders) {
   const orderSelect = document.getElementById('order-item-order');
   const defaultOption = orderSelect.querySelector('option[value=""]');
   
@@ -99,7 +99,7 @@ function populateOrderDropdown(orders) {
  * Populate product dropdown
  * @param {Array} products - Array of product objects
  */
-function populateProductDropdown(products) {
+function populateOrderItemsProductDropdown(products) {
   const productSelect = document.getElementById('order-item-product');
   const defaultOption = productSelect.querySelector('option[value=""]');
   
