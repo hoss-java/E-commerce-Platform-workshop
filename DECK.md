@@ -214,8 +214,8 @@ gantt
 > </details>
 
 ## 001-0004
-> **Add order parts.** ![status](https://img.shields.io/badge/status-ONGOING-yellow)
-> <details open>
+> **Add order parts.** ![status](https://img.shields.io/badge/status-DONE-brightgreen)
+> <details >
 >     <summary>Details</summary>
 > The goal of this card is to add Order, OrderItem and Orderstatus.
 > 
@@ -224,10 +224,10 @@ gantt
 > 
 > # TODO:
 > - [x] 1. Add order
-> - [ ] 2. Add orderitem
-> - [ ] 3. Add orderstatus.
-> - [ ] 4. Add some test
-> - [ ] 5. Update/improve webclient to support new tables.
+> - [x] 2. Add orderitem
+> - [x] 3. Add orderstatus.
+> - [x] 4. Add some test
+> - [x] 5. Update/improve webclient to support new tables.
 > 
 > # Reports:
 > *
