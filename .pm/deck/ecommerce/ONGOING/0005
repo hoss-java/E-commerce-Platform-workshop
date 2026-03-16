@@ -3,7 +3,7 @@
 # Git-deck card header
 # OBS! DON'T REMOVE CARD HEADERS
 #...
-Title: Add promotions.
+Title: Add promotion parts.
 Tags:
 Creator:
 AssignedTo:
@@ -18,8 +18,9 @@ All parts for promotions are added.
 
 # TODO:
 - [x] 1. Add promotions.
-- [ ] 2. Add some tests.
-- [ ] 3. Update webclient to support the new table.
+- [x] 2. Add some tests.
+- [x] 3. Update webclient to support the new table.
+- [ ] 4. Update README
 
 # Reports:
 *
