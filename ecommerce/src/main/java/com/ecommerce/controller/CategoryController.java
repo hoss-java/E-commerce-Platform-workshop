@@ -34,11 +34,12 @@ public class CategoryController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category category) {
-        if (categoryService.findById(id).isPresent()) {
-            category.setId(id);
-            return ResponseEntity.ok(categoryService.save(category));
-        }
-        return ResponseEntity.notFound().build();
+        return categoryService.findById(id)
+                .map(existingCategory -> {
+                    existingCategory.setName(category.getName());
+                    return ResponseEntity.ok(categoryService.save(existingCategory));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")

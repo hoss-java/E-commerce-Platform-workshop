@@ -17,7 +17,7 @@ The goal of this card is to add Order, OrderItem and Orderstatus.
 All parts entity, service, repository, and controller is add for order, orderitem and orderstatus.
 
 # TODO:
-- [ ] 1. Add order
+- [x] 1. Add order
 - [ ] 2. Add orderitem
 - [ ] 3. Add orderstatus.
 - [ ] 4. Add some test

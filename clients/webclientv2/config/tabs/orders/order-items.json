@@ -5,6 +5,7 @@
   "tabName": "order-items",
   "formId": "order-item-form",
   "formContainerId": "orderItemForm",
+  "onLoadComplete": "onOrderItemsLoaded",
   "crudId": "orderItems",
 
   "defaultSearchField": "product.name",

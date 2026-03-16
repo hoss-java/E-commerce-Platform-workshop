@@ -372,4 +372,44 @@ const apiClient = {
     return apiClient.makeRequest(`orders/customer/${customerId}/status/${status}`, 'GET');
   },
 
+  // ORDER ITEMS
+  getOrderItems: async () => {
+    return apiClient.makeRequest('order-items', 'GET');
+  },
+
+  createOrderItem: async (data) => {
+    return apiClient.makeRequest('order-items', 'POST', data);
+  },
+
+  getOrderItemById: async (id) => {
+    return apiClient.makeRequest(`order-items/${id}`, 'GET');
+  },
+
+  updateOrderItem: async (id, data) => {
+    return apiClient.makeRequest(`order-items/${id}`, 'PUT', data);
+  },
+
+  deleteOrderItem: async (id) => {
+    return apiClient.makeRequest(`order-items/${id}`, 'DELETE');
+  },
+
+  getOrderItemsByOrderId: async (orderId) => {
+    return apiClient.makeRequest(`order-items/order/${orderId}`, 'GET');
+  },
+
+  getOrderItemsByProductId: async (productId) => {
+    return apiClient.makeRequest(`order-items/product/${productId}`, 'GET');
+  },
+
+  getOrderItemsByOrderIdAndProductId: async (orderId, productId) => {
+    return apiClient.makeRequest(`order-items/order/${orderId}/product/${productId}`, 'GET');
+  },
+
+  deleteOrderItemsByOrderId: async (orderId) => {
+    return apiClient.makeRequest(`order-items/order/${orderId}`, 'DELETE');
+  },
+
+  getTotalPrice: async (id) => {
+    return apiClient.makeRequest(`order-items/${id}/total-price`, 'GET');
+  },
 };
