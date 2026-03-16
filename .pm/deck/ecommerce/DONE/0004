@@ -18,10 +18,10 @@ All parts entity, service, repository, and controller is add for order, orderite
 
 # TODO:
 - [x] 1. Add order
-- [ ] 2. Add orderitem
-- [ ] 3. Add orderstatus.
-- [ ] 4. Add some test
-- [ ] 5. Update/improve webclient to support new tables.
+- [x] 2. Add orderitem
+- [x] 3. Add orderstatus.
+- [x] 4. Add some test
+- [x] 5. Update/improve webclient to support new tables.
 
 # Reports:
 *
