@@ -234,7 +234,7 @@ gantt
 > </details>
 
 ## 001-0005
-> **Add promotions.** ![status](https://img.shields.io/badge/status-ONGOING-yellow)
+> **Add promotion parts.** ![status](https://img.shields.io/badge/status-ONGOING-yellow)
 > <details open>
 >     <summary>Details</summary>
 > The goal of this card is to add promotions.
@@ -244,8 +244,9 @@ gantt
 > 
 > # TODO:
 > - [x] 1. Add promotions.
-> - [ ] 2. Add some tests.
-> - [ ] 3. Update webclient to support the new table.
+> - [x] 2. Add some tests.
+> - [x] 3. Update webclient to support the new table.
+> - [ ] 4. Update README
 > 
 > # Reports:
 > *
