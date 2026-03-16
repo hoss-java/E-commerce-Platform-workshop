@@ -1,4 +1,4 @@
-# E-Commerce - Workshop
+# E-Commerce - Workshop v1
 
 ## webClient 2 - Refactoring Plan for CRUDManager Class
  
