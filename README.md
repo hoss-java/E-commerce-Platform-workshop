@@ -1294,9 +1294,6 @@ async function initializeSuppliersCRUD() {
 │   └── utility-helper.js
 └── proxy.php
 ```
-```\`
-
-This format uses triple backticks to create a code block, making it easy to read and maintaining the original structure when rendered in Markdown.
 
 ## ScreenShots
 
