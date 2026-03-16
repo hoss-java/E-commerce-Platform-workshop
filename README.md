@@ -559,6 +559,98 @@ Add group configuration to `js/tab-manager.js`:
 - [ ] Register tab in Tab Manager
 - [ ] Test CRUD operations in browser
 
+### Main app folders' map
+```
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com
+    │   │       └── ecommerce
+    │   │           ├── controller
+    │   │           │   ├── AddressController.java
+    │   │           │   ├── CategoryController.java
+    │   │           │   ├── CustomerController.java
+    │   │           │   ├── HelloController.java
+    │   │           │   ├── OrderController.java
+    │   │           │   ├── OrderItemController.java
+    │   │           │   ├── ProductController.java
+    │   │           │   ├── ProductImageController.java
+    │   │           │   ├── ProductPromotionController.java
+    │   │           │   ├── PromotionController.java
+    │   │           │   └── UserProfileController.java
+    │   │           ├── dto
+    │   │           │   ├── CategoryDTO.java
+    │   │           │   ├── CustomerDTO.java
+    │   │           │   ├── OrderDTO.java
+    │   │           │   ├── ProductDTO.java
+    │   │           │   ├── ProductImageDTO.java
+    │   │           │   ├── ProductPromotionDTO.java
+    │   │           │   └── PromotionDTO.java
+    │   │           ├── ECommerceApp.java
+    │   │           ├── entity
+    │   │           │   ├── Address.java
+    │   │           │   ├── Category.java
+    │   │           │   ├── Customer.java
+    │   │           │   ├── OrderItem.java
+    │   │           │   ├── Order.java
+    │   │           │   ├── ProductImageId.java
+    │   │           │   ├── ProductImage.java
+    │   │           │   ├── Product.java
+    │   │           │   ├── ProductPromotionId.java
+    │   │           │   ├── ProductPromotion.java
+    │   │           │   ├── Promotion.java
+    │   │           │   └── UserProfile.java
+    │   │           ├── exception
+    │   │           │   ├── CachedBodyFilter.java
+    │   │           │   ├── ErrorResponse.java
+    │   │           │   └── GlobalExceptionHandler.java
+    │   │           ├── model
+    │   │           │   └── HelloResponse.java
+    │   │           ├── repository
+    │   │           │   ├── AddressRepository.java
+    │   │           │   ├── CategoryRepository.java
+    │   │           │   ├── CustomerRepository.java
+    │   │           │   ├── OrderItemRepository.java
+    │   │           │   ├── OrderRepository.java
+    │   │           │   ├── ProductImageRepository.java
+    │   │           │   ├── ProductPromotionRepository.java
+    │   │           │   ├── ProductRepository.java
+    │   │           │   ├── PromotionRepository.java
+    │   │           │   └── UserProfileRepository.java
+    │   │           └── service
+    │   │               ├── AddressService.java
+    │   │               ├── CategoryService.java
+    │   │               ├── CustomerService.java
+    │   │               ├── OrderItemService.java
+    │   │               ├── OrderService.java
+    │   │               ├── ProductImageService.java
+    │   │               ├── ProductPromotionService.java
+    │   │               ├── ProductService.java
+    │   │               ├── PromotionService.java
+    │   │               └── UserProfileService.java
+    │   └── resources
+    │       ├── application-dev.properties
+    │       ├── application-prod.properties
+    │       └── application.properties
+    └── test
+        └── java
+            └── com
+                └── ecommerce
+                    ├── controller
+                    │   ├── AddressControllerTest.java
+                    │   ├── CategoryControllerTest.java
+                    │   ├── CustomerControllerTest.java
+                    │   ├── OrderControllerTest.java
+                    │   ├── OrderItemControllerTest.java
+                    │   ├── ProductControllerTest.java
+                    │   ├── ProductPromotionControllerTest.java
+                    │   ├── PromotionControllerTest.java
+                    │   └── UserProfileControllerTest.java
+                    └── ECommerceAppTest.java
+
+```
+
 ## webClient 2 - Refactoring Plan for CRUDManager Class
 * Estimated time 1 week, 
  
