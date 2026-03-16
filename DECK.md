@@ -181,47 +181,9 @@ gantt
 > >```
 > </details>
 
-## 001-0004
-> **Add order parts.** ![status](https://img.shields.io/badge/status-NOT--STARTED-lightgrey)
-> <details >
->     <summary>Details</summary>
-> The goal of this card is to add Order, OrderItem and Orderstatus.
-> 
-> # DOD (definition of done):
-> All parts entity, service, repository, and controller is add for order, orderitem and orderstatus.
-> 
-> # TODO:
-> - [ ] 1. Add order
-> - [ ] 2. Add orderitem
-> - [ ] 3. Add orderstatus.
-> - [ ] 4. Add some test
-> - [ ] 5. Update/improve webclient to support new tables.
-> 
-> # Reports:
-> *
-> </details>
-
-## 001-0005
-> **Add promotions.** ![status](https://img.shields.io/badge/status-NOT--STARTED-lightgrey)
-> <details >
->     <summary>Details</summary>
-> The goal of this card is to add promotions.
-> 
-> # DOD (definition of done):
-> All parts for promotions are added.
-> 
-> # TODO:
-> - [ ] 1. Add promotions.
-> - [ ] 2. Add some tests.
-> - [ ] 3. Update webclient to support the new table.
-> 
-> # Reports:
-> *
-> </details>
-
 ## 001-0003
-> **Add product parts.** ![status](https://img.shields.io/badge/status-ONGOING-yellow)
-> <details open>
+> **Add product parts.** ![status](https://img.shields.io/badge/status-DONE-brightgreen)
+> <details >
 >     <summary>Details</summary>
 > The goal of this card is to add Product, category.
 > 
@@ -249,4 +211,42 @@ gantt
 > 
 > # GitHub follows
 > * No after fixing test for customers , the tests lines on `main-merge-changes.yml` uncommented
+> </details>
+
+## 001-0004
+> **Add order parts.** ![status](https://img.shields.io/badge/status-ONGOING-yellow)
+> <details open>
+>     <summary>Details</summary>
+> The goal of this card is to add Order, OrderItem and Orderstatus.
+> 
+> # DOD (definition of done):
+> All parts entity, service, repository, and controller is add for order, orderitem and orderstatus.
+> 
+> # TODO:
+> - [x] 1. Add order
+> - [ ] 2. Add orderitem
+> - [ ] 3. Add orderstatus.
+> - [ ] 4. Add some test
+> - [ ] 5. Update/improve webclient to support new tables.
+> 
+> # Reports:
+> *
+> </details>
+
+## 001-0005
+> **Add promotions.** ![status](https://img.shields.io/badge/status-ONGOING-yellow)
+> <details open>
+>     <summary>Details</summary>
+> The goal of this card is to add promotions.
+> 
+> # DOD (definition of done):
+> All parts for promotions are added.
+> 
+> # TODO:
+> - [x] 1. Add promotions.
+> - [ ] 2. Add some tests.
+> - [ ] 3. Update webclient to support the new table.
+> 
+> # Reports:
+> *
 > </details>
