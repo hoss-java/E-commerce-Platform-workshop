@@ -1,0 +1,68 @@
+{
+  "entityName": "user-profile",
+  "apiEndpoint": "user-profiles",
+  "tableId": "user-profiles-table",
+  "tabName": "user-profiles",
+  "formId": "user-profile-form",
+  "formContainerId": "userProfileForm",
+  "crudId": "userProfiles",
+
+  "defaultSearchField": "nickname",
+  "enableSearch": true,
+  "columns": [
+    {
+      "key": "id",
+      "label": "ID",
+      "searchable": false,
+      "searchable": false 
+    },
+    {
+      "key": "nickname",
+      "label": "Nickname",
+      "display": true,
+      "searchable": true 
+    },
+    {
+      "key": "phoneNumber",
+      "label": "Phone",
+      "display": true,
+      "searchable": true 
+    },
+    {
+      "key": "bio",
+      "label": "Bio",
+      "display": true,
+      "formatter": "truncateBio",
+      "searchable": false
+    }
+  ],
+  "formFields": [
+    {
+      "id": "user-profile-nickname",
+      "key": "nickname",
+      "label": "Nickname",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter nickname",
+      "pattern": "[a-zA-Z0-9\\s,.\\-]*",
+      "maxLength": 50
+    },
+    {
+      "id": "user-profile-phoneNumber",
+      "key": "phoneNumber",
+      "label": "Phone Number",
+      "type": "tel",
+      "required": true,
+      "placeholder": "Enter Phone Number"
+    },
+    {
+      "id": "user-profile-bio",
+      "key": "bio",
+      "label": "Bio",
+      "type": "textarea",
+      "required": false,
+      "placeholder": "Enter bio (optional)",
+      "maxLength": 200
+    }
+  ]
+}

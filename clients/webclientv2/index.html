@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Client - Management System</title>
+  
+  <!-- Base CSS + Default Theme -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Management System</h1>
+    <p>Web Client for Spring API</p>
+    <!-- Theme switcher will be injected here -->
+  </header>
+
+  <div class="container">
+    <div id="groups-container"></div>
+    <div id="tabs-container"></div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Console Window -->
+  <div class="console-window" id="console-window">
+    <div class="console-header">
+      <span class="console-title">Console</span>
+      <div class="console-controls">
+        <button class="console-btn console-copy-btn">📋 Copy</button>
+        <button class="console-btn console-clear-btn">Clear</button>
+      </div>
+    </div>
+    <div class="console-output"></div>
+  </div>
+
+  <!-- Load scripts in order -->
+  <!-- Utilties -->
+  <script src="js/utility-helper.js"></script>
+  <!-- Managers -->
+  <script src="js/console.js"></script>
+  <script src="js/console-logger.js"></script>
+  <script src="js/theme-manager.js"></script>
+  <script src="js/tab-manager.js"></script>
+  <script src="js/api-client.js"></script>
+  <!-- CRUDManager -->
+  <script src="js/id-generator.js"></script>  
+  <script src="js/ui-controller.js"></script>
+  <script src="js/data-manager.js"></script>
+  <script src="js/table-renderer.js"></script>
+  <script src="js/form-builder.js"></script>
+  <script src="js/search-filter.js"></script>
+  <script src="js/form-manager.js"></script>
+  <script src="js/crud-manager.js"></script>
+  <!-- App Init -->
+  <script src="js/app-init.js"></script>
+  <!-- Groups, tabs -->
+  <script src="js/tabs/customers/addresses.js"></script>
+  <script src="js/tabs/customers/customers.js"></script>
+  <script src="js/tabs/customers/user-profiles.js"></script>
+  <script src="js/tabs/products/categories.js"></script>
+  <script src="js/tabs/products/products.js"></script>
+  <script src="js/tabs/products/product-images.js"></script>
+  <script src="js/tabs/promotions/promotion.js"></script>
+  <script src="js/tabs/promotions/product-promotions.js"></script>
+  <script src="js/tabs/orders/orders.js"></script>
+  <script src="js/tabs/orders/order-items.js"></script>
+
+  <script>
+    // Initialize theme manager first
+    window.themeManager?.init();
+
+    // Then initialize other components
+    document.getElementById('clear-btn')?.addEventListener('click', () => {
+      window.consoleWindowInstance?.clear();
+    });
+  </script>
+</body>
+</html>

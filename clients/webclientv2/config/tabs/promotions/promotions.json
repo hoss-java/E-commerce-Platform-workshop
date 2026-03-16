@@ -1,0 +1,66 @@
+{
+  "entityName": "promotion",
+  "apiEndpoint": "promotions",
+  "tableId": "promotions-table",
+  "tabName": "promotions",
+  "formId": "promotion-form",
+  "formContainerId": "promotionForm",
+  "crudId": "promotions",
+
+  "defaultSearchField": "code",
+  "enableSearch": true,
+  "columns": [
+    {
+      "key": "id",
+      "label": "ID",
+      "display": true,
+      "searchable": false
+    },
+    {
+      "key": "code",
+      "label": "Promotion Code",
+      "display": true,
+      "searchable": true
+    },
+    {
+      "key": "startDate",
+      "label": "Start Date",
+      "display": true,
+      "searchable": false
+    },
+    {
+      "key": "endDate",
+      "label": "End Date",
+      "display": true,
+      "searchable": false
+    }
+  ],
+  "formFields": [
+    {
+      "id": "promotion-code",
+      "key": "code",
+      "label": "Promotion Code",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter promotion code",
+      "pattern": "[a-zA-Z0-9\\-_]*",
+      "maxLength": 50
+    },
+    {
+      "id": "promotion-start-date",
+      "key": "startDate",
+      "label": "Start Date",
+      "type": "date",
+      "required": true,
+      "placeholder": "Select start date"
+    },
+    {
+      "id": "promotion-end-date",
+      "key": "endDate",
+      "label": "End Date",
+      "type": "date",
+      "required": true,
+      "placeholder": "Select end date"
+    }
+  ]
+}

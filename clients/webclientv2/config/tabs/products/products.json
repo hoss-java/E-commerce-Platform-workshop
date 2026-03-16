@@ -1,0 +1,69 @@
+{
+  "entityName": "product",
+  "apiEndpoint": "products",
+  "tableId": "products-table",
+  "tabName": "products",
+  "formId": "product-form",
+  "formContainerId": "productForm",
+  "onLoadComplete": "onCategoriesLoaded",  
+  "crudId": "products",
+
+  "defaultSearchField": "name",
+  "enableSearch": true,
+  "columns": [
+    {
+      "key": "id",
+      "label": "ID",
+      "display": true,
+      "searchable": false 
+    },
+    {
+      "key": "name",
+      "label": "Name",
+      "display": true,
+      "searchable": true 
+    },
+    {
+      "key": "price",
+      "label": "Price",
+      "display": true,
+      "searchable": true 
+    },
+    {
+      "key": "category.id",
+      "label": "Category",
+      "display": true,
+      "searchable": false 
+    }
+  ],
+  "formFields": [
+    {
+      "id": "product-name",
+      "key": "name",
+      "label": "Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter Product name",
+      "pattern": "[a-zA-Z0-9\\s,.\\-]*",
+      "maxLength": 50
+    },
+    {
+      "id": "product-price",
+      "key": "price",
+      "label": "Price",
+      "type": "text",
+      "required": true,
+      "placeholder": "100",
+      "pattern": "[0-9\\-]*",
+      "maxLength": 10
+    },
+    {
+      "id": "product-category",
+      "key": "category",
+      "label": "Category",
+      "type": "select",
+      "relationshipKey": "category",
+      "required": true
+    }
+  ]
+}

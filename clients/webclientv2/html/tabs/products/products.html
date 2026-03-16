@@ -1,0 +1,35 @@
+<div id="products-tab" class="tab-content">
+  <!-- Messages and Loading States -->
+  <div id="products-message" class="message"></div>
+  <div id="products-loading" class="loading">Loading products...</div>
+
+  <!-- Add New Product Button -->
+  <div id="addProductButtonGroup" class="button-group" style="margin-bottom: 20px;">
+    <button class="btn-primary" onclick="productsCrudManager.toggleFormVisibility(true);">
+      + Add New Product
+    </button>
+  </div>
+
+
+  <!-- Product Form (Hidden by Default) -->
+  <div id="productForm" class="form-section hidden" data-auto-generate="true">
+    <!-- Form will be generated here -->
+  </div>
+
+  <!-- Products List -->
+  <div class="list-container">
+    <!-- Dynamic Filter Row -->
+    <div id="product-filter-row-container" class="filter-row">
+      <!-- Filter UI generated dynamically -->
+    </div>
+    <!-- Products Table -->
+    <table id="products-table">
+      <thead>
+        <!-- Headers generated dynamically -->
+      </thead>
+      <tbody>
+        <!-- Data rows generated dynamically -->
+      </tbody>
+    </table>
+  </div>
+</div>

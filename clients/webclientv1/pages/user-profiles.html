@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profiles - API Client</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>User Profiles Management</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="customers.html">Customers</a>
+                <a href="user-profiles.html" class="active">User Profiles</a>
+                <a href="addresses.html">Addresses</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="controls">
+                <button id="addProfileBtn" class="btn btn-primary">Add New Profile</button>
+                <input type="text" id="searchInput" placeholder="Search profiles..." class="search-box">
+                <select id="filterRole" class="filter-select">
+                    <option value="">All Roles</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                    <option value="guest">Guest</option>
+                </select>
+            </section>
+
+            <section id="profileForm" class="form-section hidden">
+                <h2>User Profile Form</h2>
+                <form id="profileFormElement">
+                    <div class="form-group">
+                        <label for="profileId">Profile ID:</label>
+                        <input type="text" id="profileId" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileUsername">Username:</label>
+                        <input type="text" id="profileUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email:</label>
+                        <input type="email" id="profileEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileRole">Role:</label>
+                        <select id="profileRole" required>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                            <option value="guest">Guest</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileBio">Bio:</label>
+                        <textarea id="profileBio" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileJoinDate">Join Date:</label>
+                        <input type="date" id="profileJoinDate">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">Save Profile</button>
+                        <button type="button" id="cancelFormBtn" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="profilesList" class="list-section">
+                <h2>User Profiles List</h2>
+                <div id="profilesContainer" class="data-container">
+                    <p class="loading">Loading profiles...</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 API Client. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="../js/api-client.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>
